@@ -25,7 +25,8 @@ echo
 
 # comment the line below to deploy the other example contract
 # near dev-deploy ./build/debug/singleton.wasm
-near dev-deploy ./build/debug/nearmock.wasm
+# near dev-deploy ./build/debug/nearmock.wasm
+near deploy ./build/debug/main.wasm
 
 echo
 echo

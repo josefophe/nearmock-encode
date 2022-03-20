@@ -21,7 +21,7 @@ import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import * as yup from 'yup';
 import Navbar from '../../../common/Navbar';
-import { useAuth } from '../../../lib/auth';
+import { useAuth } from '../../../lib/auth-near';
 import { addQuizApi } from '../../../utils/service';
 
 const optionData = [
@@ -59,15 +59,15 @@ const answerOption = [
 ];
 
 const Index = () => {
-  const { auth, loading } = useAuth();
+  const { isAuth, triedEager } = useAuth();
 
   const router = useRouter();
 
   useEffect(() => {
-    if (!auth && !loading) {
+    if (!isAuth && !triedEager) {
       router.push('/signin?next=/quiz/new');
     }
-  }, [auth, loading]);
+  }, [isAuth, triedEager]);
 
   const questionsData = {
     title: '',
@@ -115,7 +115,7 @@ const Index = () => {
           };
         }),
       };
-      await addQuizApi(auth, values);
+      await addQuizApi(isAuth, values);
       router.push('/');
     } catch (error) {
       console.log('error', error);

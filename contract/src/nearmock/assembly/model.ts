@@ -1,5 +1,4 @@
 import { context, u128} from "near-sdk-as";
-
 @nearBindgen
 export class Questions {
   id: i32;
@@ -44,8 +43,8 @@ export class Questions {
     return `${this.questionTitle}`
   }
 
-  public getChoiceDetails(): Array<string>{
-    return `${this.option}`;
+  public getChoiceDetails(): string {
+    return `${this.option1}`;
   }
 
   public getAnswer(): i32{

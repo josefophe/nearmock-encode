@@ -1,11 +1,11 @@
 import firebase from '../lib/firebase';
 
-export const addUser = async (authUser: any) => {
+export const addUser = async (isAuthUser: any) => {
   const resp = await firebase
     .firestore()
     .collection('users')
-    .doc(authUser.uid as string)
-    .set({ ...authUser }, { merge: true });
+    .doc(isAuthUser.uid as string)
+    .set({ ...isAuthUser }, { merge: true });
   return resp;
 };
 

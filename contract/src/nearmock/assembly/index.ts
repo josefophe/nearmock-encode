@@ -1,3 +1,17 @@
+/*
+ * This is an example of an AssemblyScript smart contract with two simple,
+ * symmetric functions:
+ *
+ * 1. setGreeting: accepts a greeting, such as "howdy", and records it for the
+ *    user (account_id) who sent the request
+ * 2. getGreeting: accepts an account_id and returns the greeting saved for it,
+ *    defaulting to "Hello"
+ *
+ * Learn more about writing NEAR smart contracts with AssemblyScript:
+ * https://docs.near.org/docs/develop/contracts/as/intro
+ *
+ */
+
 import { Context, logging,context, u128, PersistentVector, ContractPromiseBatch, PersistentMap  } from 'near-sdk-as'
 
 
@@ -8,11 +22,12 @@ import { Questions} from './model';
  *   STORAGE    *
  ****************/
 const QuestionVector = new PersistentVector<Questions>('QuestionVector');
-// const DEFAULT_FEE: u128 = u128.from("1000000000000000000000000"); // 1 NEAR
+const WinnerListMap = new PersistentMap<u32,Array<string>>('wlm');
+const DEFAULT_REWARD: u128 = u128.from("1000000000000000000000000"); // 1 NEAR
 /**
  * Adds a new question under the name of the sender's account id.\
  */
-export function addQuestion(
+ export function addQuestionTitle(
   _questionTitle: string,
   _questionDesp: string,
   _question: string,
@@ -23,7 +38,7 @@ export function addQuestion(
   _answer: i32
 ): void {
   let id = QuestionVector.length + 1;
-  const questionTitle = new Questions(id,context.sender,_questionTitle, _questionDesp, _question, _answer,_option1, _option2, _option3, _option4,DEFAULT_FEE);
+  const questionTitle = new Questions(id,context.sender,_questionTitle, _questionDesp, _question, _answer,_option1, _option2, _option3, _option4,DEFAULT_REWARD);
   QuestionVector.push(questionTitle);
   logging.log("add question" + questionTitle.getQuestion());
 }

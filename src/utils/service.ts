@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { isAuth } from '../lib/firebase-admin';
 
-export const addQuizApi = async (auth, values) => {
+export const addQuizApi = async (isAuth, values) => {
   try {
     const header = {
       'Content-Type': 'application/json',
-      token: auth.token,
+      token: isAuth.token,
     };
     const resp = await axios.post('/api/quiz', values, { headers: header });
     return resp;
@@ -13,11 +14,11 @@ export const addQuizApi = async (auth, values) => {
   }
 };
 
-export const addAnswerApi = async (auth, quizId, values) => {
+export const addAnswerApi = async (isAuth, quizId, values) => {
   try {
     const header = {
       'Content-Type': 'application/json',
-      token: auth.token,
+      token: isAuth.token,
     };
     const resp = await axios.post(
       `/api/quiz/${quizId}/answer`,

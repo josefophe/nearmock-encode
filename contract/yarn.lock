@@ -388,6 +388,11 @@ ms@2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
   integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
 
+near-bindgen-as@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/near-bindgen-as/-/near-bindgen-as-1.2.3.tgz#02d4212ae04e2a0f1cb5fdfe51924b8723966ed3"
+  integrity sha512-Dcb17I1qqx9x7btZkYCWSk6Lua33hYUy3TfnPHymmif4SPVo1iE0YTQLau64MuRLAQWIo7Tv1QHzMV+jVrv7Zg==
+
 near-mock-vm@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/near-mock-vm/-/near-mock-vm-3.1.0.tgz#95a2fc5b0198d138e4c6c8a0c2e4ab927de8f073"

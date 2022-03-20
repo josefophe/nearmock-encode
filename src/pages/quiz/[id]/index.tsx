@@ -16,7 +16,7 @@ import { NextPageContext } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import Navbar from '../../../common/Navbar';
-import { useAuth } from '../../../lib/auth';
+import { useAuth } from '../../../lib/auth-near';
 import { getSingleQuiz } from '../../../utils/db';
 import { addAnswerApi } from '../../../utils/service';
 
@@ -93,21 +93,21 @@ const ShowQuiz = (quiz, onSubmit) => {
 };
 
 const SingleQuiz = (props) => {
-  const { auth, loading } = useAuth();
+  const { isAuth, triedEager } = useAuth();
 
   const router = useRouter();
 
   useEffect(() => {
-    if (!auth && !loading) {
+    if (!isAuth && !triedEager) {
       router.push(`/signin?next=/quiz/${props.quizId}`);
     }
-  }, [auth, loading]);
+  }, [isAuth, triedEager]);
 
   const quiz = JSON.parse(props.quiz);
 
   const onSubmit = async (values, actions) => {
     try {
-      const resp = await addAnswerApi(auth, props.quizId, values);
+      const resp = await addAnswerApi(isAuth, props.quizId, values);
       const answerId = resp.data.data.answerId;
       router.push(`/quiz/${props.quizId}/answer/${answerId}`);
     } catch (error) {
