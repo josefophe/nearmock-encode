@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+## Inspiration
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+I have been in the education space for some years and I see the need for genuine community sharing between tutors and students for positive changes students performance using technology.  This has been my personal project for some time now how tutors can share knowledge and earn token when student access their assessments within the Near Protocol ecosystem.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What it does. 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+iMock is an decentralized app solution aimed to improve secondary school students(as a first case study), an Educational platform that enables learning at an easy pace, cost-effective and community based solution, providing seamless access to curated education assessment for students based on their curriculum. iMock is transparent in services and payment between authors/tutors and learners/students. User interface friendly, and on the blockchain (Near protocol).
+    
+    -  A tutor login with their near account and post their questions making a contract call and paying initial deposit of some near token(which covers gas fee and iMock storage fee)
+    
+    -  Students login with their near accounts, pay a token which in turns go back to the tutor (owner of the contract) they can practice the questions based on what they've learnt during the week at the end of each week making them conversant of what they learnt.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## How I built it
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The contract was written in assembly script while the front was built with Typescript, chakra ui and firebase.  
 
-## Learn More
+## Challenges I ran into
 
-To learn more about Next.js, take a look at the following resources:
+I had a learning challenge working with server side database storage with smart contracts or web3 as I cannot write to the database without a user token from firebase to authenticate the user writing to the database. This remain a big challenge for me storing data with a near account login model. I am yet to resolve this. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Accomplishments that I am proud of
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+I was able to set up a login with near feature and authentication and smart contracts on assembly script. 
 
-## Deploy on Vercel
+## What I learned
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Building with near protocol is quite an interesting journey as there is a lot to learn about web3 technology and how it works. With near I was able to full understand deployment and web3 accounts.
