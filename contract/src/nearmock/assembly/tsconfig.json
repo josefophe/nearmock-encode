@@ -2,5 +2,14 @@
   "extends": "assemblyscript/std/assembly.json",
   "include": [
     "./**/*.ts"
-  ]
+  ],
+  "compilerOptions": {
+ //     "outDir": "./dist" 
+ //     "rootDir": "./src" 
+      /* Experimental Options */
+      "experimentalDecorators": true, 
+      "emitDecoratorMetadata": true, 
+      /* Advanced Options */
+      "forceConsistentCasingInFileNames": true 
+    }
 }
